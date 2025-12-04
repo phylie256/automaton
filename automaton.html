@@ -21,15 +21,17 @@
   </head>
   <body>
     <h2>オートマトン状態遷移表</h2>
-    <div>
+    <div style="margin: 16px 0px">
       <button id="add_state_button">状態追加</button>
       <button id="add_symbol_button">入力記号追加</button>
     </div>
 
     <div id="editable"></div>
 
-    <button id="epsilon_nfa_to_dfa_button">DFAに変換</button>
-    <button id="minimize_dfa_button">最簡形DFAに変換</button>
+    <div style="margin: 16px 0px">
+      <button id="epsilon_nfa_to_dfa_button">DFAに変換</button>
+      <button id="minimize_dfa_button">最簡形DFAに変換</button>
+    </div>
 
     <p>DFA:</p>
     <div id="converted"></div>
