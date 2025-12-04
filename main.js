@@ -235,12 +235,18 @@ function addSymbol(nfa) {
 function deleteState(nfa, i) {
   if (i >= 0 && i < nfa.states.length) {
     let deletedState = nfa.states[i];
-    // 初期状態に該当する状態が削除されたら初期状態をnullにする
+    // 初期状態に該当したら初期状態をnullにする
     if (deletedState === nfa.initial) {
       nfa.initial = null;
     }
+    // 受理状態に該当したら受理状態集合から削除する
+    if (nfa.accept.includes(deletedState)) {
+      nfa.accept = nfa.accept.filter(name => name !== deletedState);
+    }
+    // 状態を削除
     nfa.states.splice(i, 1);
   }
+  // 遷移関数の行を削除
   if (i >= 0 && i < nfa.transition.length) {
     nfa.transition.splice(i, 1);
   }
