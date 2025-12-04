@@ -661,7 +661,8 @@ document.getElementById("add_symbol_button").addEventListener("click", () => add
 // 変換後のDFAを表示
 document.getElementById("epsilon_nfa_to_dfa_button").addEventListener("click", () => {
   dfa_A = epsilon_nfa_to_dfa(A);
-  putTable(dfa_A, "converted");
+  ordered_dfa_A = order_states(dfa_A);
+  putTable(ordered_dfa_A, "converted");
 });
 // 変換後の最簡形DFAを表示
 document.getElementById("minimize_dfa_button").addEventListener("click", () => {
@@ -669,4 +670,5 @@ document.getElementById("minimize_dfa_button").addEventListener("click", () => {
   min_dfa_A = minimize_dfa(dfa_A);
   ordered_min_dfa_A = order_states(min_dfa_A);
   putTable(ordered_min_dfa_A,"minimized");
+
 });
